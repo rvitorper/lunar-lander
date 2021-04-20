@@ -102,7 +102,7 @@ if __name__ == "__main__":
     for epoch in range(200000):
         batch_returns = []
         batch_rewards = []
-        episode_count = 10
+        episode_count = 39
         observation = env.reset()
         rewards = []
         actions = []
@@ -118,6 +118,10 @@ if __name__ == "__main__":
             observation, reward, done, info = env.step(action)
             reward -= math.fabs(observation[0])
             reward -= math.fabs(observation[1])
+            reward -= math.fabs(observation[2])
+            reward -= math.fabs(observation[3])
+            reward -= math.fabs(observation[4])
+            reward -= math.fabs(observation[5])
             actions.append(action)
             rewards.append(reward)
             if done:
